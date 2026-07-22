@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
-import AppMockup from "@/components/AppMockup";
+import BrandLogo from "@/components/BrandLogo";
 import ContactForm from "@/components/ContactForm";
+import HeroBenefitsCarousel from "@/components/HeroBenefitsCarousel";
+import SoftwareShowcase from "@/components/SoftwareShowcase";
 import {
   Mail,
   FileText,
@@ -195,6 +197,7 @@ const security = [
 ];
 
 const pricingIncluded = [
+  "Unbegrenzt viele Mandanten und Unternehmen",
   "PDF-Import",
   "Excel-Abgleich",
   "Automatische Dokumententrennung",
@@ -264,14 +267,14 @@ export default function Page() {
               <a href="#kontakt" className="btn btn-primary btn-lg">
                 2 Monate kostenlos testen
               </a>
-              <a href="#funktionen" className="btn btn-secondary btn-lg">
-                Funktionen ansehen
+              <a href="#software" className="btn btn-secondary btn-lg">
+                Software ansehen
               </a>
             </div>
             <p className="hero-note">Keine Kreditkarte erforderlich · Lokale Verarbeitung · Made in Germany</p>
           </div>
 
-          <AppMockup />
+          <HeroBenefitsCarousel />
         </div>
       </section>
 
@@ -385,8 +388,11 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 5. Features */}
-      <section className="section section-alt" id="funktionen">
+      {/* 5. Software */}
+      <SoftwareShowcase />
+
+      {/* 6. Features */}
+      <section className="section" id="funktionen">
         <div className="container center">
           <span className="eyebrow">
             <ClipboardList size={14} /> Funktionen
@@ -407,7 +413,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 6. Sustainability */}
+      {/* 7. Sustainability */}
       <section className="section sustain">
         <div className="container center">
           <span className="eyebrow">
@@ -446,7 +452,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 7. Business Benefits */}
+      {/* 8. Business Benefits */}
       <section className="section">
         <div className="container center">
           <span className="eyebrow">
@@ -468,7 +474,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 8. Target Audience */}
+      {/* 9. Target Audience */}
       <section className="section section-alt">
         <div className="container center">
           <span className="eyebrow">
@@ -491,7 +497,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 9. Security */}
+      {/* 10. Security */}
       <section className="section" id="sicherheit">
         <div className="container">
           <span className="eyebrow">
@@ -521,7 +527,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 10. Pricing */}
+      {/* 11. Pricing */}
       <section className="section section-alt" id="preis">
         <div className="container center">
           <span className="eyebrow">
@@ -558,7 +564,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 11. Savings Example */}
+      {/* 12. Savings Example */}
       <section className="section">
         <div className="container">
           <span className="eyebrow">
@@ -605,7 +611,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 12. Final CTA */}
+      {/* 13. Final CTA */}
       <section className="section" style={{ paddingBottom: 0 }}>
         <div className="container">
           <div className="final-cta">
@@ -626,7 +632,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 13. Contact Form */}
+      {/* 14. Contact Form */}
       <section className="section" id="kontakt">
         <div className="container center">
           <span className="eyebrow">
@@ -637,21 +643,19 @@ export default function Page() {
             Füllen Sie das Formular aus — wir richten Ihren kostenlosen Testzugang ein und melden
             uns zeitnah bei Ihnen.
           </p>
+          <p className="contact-email"><a href="mailto:support@lohn-mail.de">support@lohn-mail.de</a></p>
 
           <ContactForm />
         </div>
       </section>
 
-      {/* 14. Footer */}
+      {/* 15. Footer */}
       <footer className="site-footer">
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
               <span className="logo">
-                <span className="logo-mark">
-                  <Mail size={17} strokeWidth={2.2} />
-                </span>
-                LohnMail
+                <BrandLogo />
               </span>
               <p>
                 LohnMail automatisiert die Verarbeitung, Verschlüsselung und den E-Mail-Versand von
@@ -681,7 +685,7 @@ export default function Page() {
                   <a href="#kontakt">Testzugang anfragen</a>
                 </li>
                 <li>
-                  <a href="mailto:kontakt@lohnmail.de">kontakt@lohnmail.de</a>
+                  <a href="mailto:support@lohn-mail.de">support@lohn-mail.de</a>
                 </li>
               </ul>
             </div>

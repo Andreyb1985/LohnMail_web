@@ -13,8 +13,8 @@ import { NextResponse } from "next/server";
  *   import { Resend } from "resend";
  *   const resend = new Resend(process.env.RESEND_API_KEY);
  *   await resend.emails.send({
- *     from: "LohnMail <noreply@lohnmail.de>",
- *     to: "kontakt@lohnmail.de",
+ *     from: "LohnMail <noreply@lohn-mail.de>",
+ *     to: "support@lohn-mail.de",
  *     subject: `Testzugang-Anfrage: ${data.firmenname}`,
  *     text: JSON.stringify(data, null, 2),
  *   });

@@ -187,6 +187,14 @@ export const Search = ({ size = 20, strokeWidth = 2 }: IconProps) => (
   </svg>
 );
 
+export const Download = ({ size = 20, strokeWidth = 2 }: IconProps) => (
+  <svg {...base(size)} strokeWidth={strokeWidth}>
+    <path d="M12 3v12" />
+    <path d="m7 10 5 5 5-5" />
+    <path d="M5 21h14" />
+  </svg>
+);
+
 export const LayoutDashboard = ({ size = 20, strokeWidth = 2 }: IconProps) => (
   <svg {...base(size)} strokeWidth={strokeWidth}>
     <rect x="3" y="3" width="8" height="8" rx="1.5" />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle } from "./icons";
+import { CheckCircle, Download, Monitor } from "./icons";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -13,6 +13,17 @@ export default function ContactForm() {
 
     const formData = new FormData(e.currentTarget);
     const payload = Object.fromEntries(formData.entries());
+    const subject = `LohnMail Testzugang – ${String(payload.firmenname || "Anfrage")}`;
+    const body = [
+      `Firmenname: ${String(payload.firmenname || "")}`,
+      `Ansprechpartner: ${String(payload.ansprechpartner || "")}`,
+      `E-Mail: ${String(payload.email || "")}`,
+      `Telefonnummer: ${String(payload.telefon || "Nicht angegeben")}`,
+      `Anzahl Mitarbeitende: ${String(payload.mitarbeitende || "Nicht angegeben")}`,
+      "",
+      "Nachricht:",
+      String(payload.nachricht || "Keine zusätzliche Nachricht."),
+    ].join("\n");
 
     try {
       // Anfrage an die eigene API-Route senden.
@@ -29,19 +40,39 @@ export default function ContactForm() {
     } finally {
       setSending(false);
       setSent(true);
+      window.setTimeout(() => {
+        window.location.href = `mailto:support@lohn-mail.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }, 150);
     }
   }
 
   if (sent) {
     return (
-      <div className="contact-wrap">
-        <div className="form-success" role="status">
+      <div className="contact-wrap download-screen" role="status">
+        <div className="download-heading">
           <div className="success-icon">
-            <CheckCircle size={30} />
+            <CheckCircle size={28} />
           </div>
-          <h3>Vielen Dank.</h3>
-          <p>Wir melden uns zeitnah bei Ihnen.</p>
+          <div>
+            <h3>Vielen Dank. Wählen Sie Ihre Version.</h3>
+            <p>Die Anfrage an <strong>support@lohn-mail.de</strong> wurde vorbereitet.</p>
+          </div>
         </div>
+
+        <div className="download-options" aria-label="LohnMail herunterladen">
+          <a href="/downloads/LohnMail-Setup-Windows.exe" download>
+            <span className="platform-icon"><Monitor size={24} /></span>
+            <span><strong>Für Windows</strong><small>Windows 10 und 11 · EXE</small></span>
+            <Download size={20} />
+          </a>
+          <a href="/downloads/LohnMail-macOS.dmg" download>
+            <span className="platform-icon platform-text">MAC</span>
+            <span><strong>Für macOS</strong><small>Apple Silicon und Intel · DMG</small></span>
+            <Download size={20} />
+          </a>
+        </div>
+
+        <p className="download-note">Das E-Mail-Programm öffnet sich separat. Senden Sie die vorbereitete Anfrage ab, damit wir Sie persönlich kontaktieren können.</p>
       </div>
     );
   }

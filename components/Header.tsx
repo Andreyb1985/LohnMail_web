@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Menu, X } from "./icons";
+import BrandLogo from "./BrandLogo";
+import { Menu, X } from "./icons";
 
 const links = [
   { href: "#funktionen", label: "Funktionen" },
@@ -18,10 +19,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <a href="#top" className="logo" aria-label="LohnMail – Startseite">
-          <span className="logo-mark">
-            <Mail size={17} strokeWidth={2.2} />
-          </span>
-          LohnMail
+          <BrandLogo />
         </a>
 
         <nav className={`main-nav${open ? " open" : ""}`} aria-label="Hauptnavigation">
