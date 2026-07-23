@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import { Inter, Archivo } from "next/font/google";
+import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-inter",
   display: "swap",
 });
 
 const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-archivo",
   display: "swap",
   weight: ["500", "600", "700"],
 });
@@ -45,7 +46,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="de" className={`${inter.variable} ${archivo.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }
