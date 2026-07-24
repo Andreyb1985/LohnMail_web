@@ -2397,8 +2397,25 @@ button {
   color: var(--brand);
 }
 
-.pricing-page {
+.page-section.pricing-page {
+  padding-top: 32px;
   background: var(--bg);
+}
+
+.page-intro.pricing-intro {
+  padding: 42px 0 36px;
+}
+
+.page-intro.pricing-intro h1 {
+  max-width: 760px;
+  font-size: clamp(38px, 4vw, 48px);
+}
+
+.page-intro.pricing-intro p {
+  max-width: 700px;
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.55;
 }
 
 .pricing-layout {
@@ -2670,6 +2687,22 @@ button {
 
   .page-intro p {
     font-size: 17px;
+  }
+
+  .page-intro.pricing-intro {
+    padding: 36px 0 30px;
+  }
+
+  .page-intro.pricing-intro h1 {
+    font-size: 39px;
+  }
+
+  .page-intro.pricing-intro p {
+    font-size: 16px;
+  }
+
+  .page-section.pricing-page {
+    padding-top: 28px;
   }
 
   .page-section {

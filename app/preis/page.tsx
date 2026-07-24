@@ -19,7 +19,7 @@ const included = [
 export default function PricingPage() {
   return (
     <>
-      <section className="page-intro">
+      <section className="page-intro pricing-intro">
         <div className="container">
           <span className="eyebrow">
             <Euro size={14} /> Preis
