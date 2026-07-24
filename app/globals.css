@@ -2161,29 +2161,33 @@ button {
 }
 
 .page-intro {
-  padding: 72px 0 64px;
+  padding: 42px 0 36px;
   border-bottom: 1px solid var(--border);
   background: var(--card);
 }
 
 .page-intro h1 {
-  max-width: 850px;
+  max-width: 760px;
   margin: 0;
-  font-size: clamp(38px, 5vw, 58px);
+  font-size: clamp(38px, 4vw, 48px);
   line-height: 1.06;
   letter-spacing: 0;
 }
 
 .page-intro p {
-  max-width: 720px;
-  margin-top: 22px;
+  max-width: 700px;
+  margin-top: 14px;
   color: var(--text-secondary);
-  font-size: 19px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.55;
 }
 
 .page-section {
   padding: 78px 0;
+}
+
+.page-intro + .page-section {
+  padding-top: 32px;
 }
 
 .section-action {
@@ -2400,22 +2404,6 @@ button {
 .page-section.pricing-page {
   padding-top: 32px;
   background: var(--bg);
-}
-
-.page-intro.pricing-intro {
-  padding: 42px 0 36px;
-}
-
-.page-intro.pricing-intro h1 {
-  max-width: 760px;
-  font-size: clamp(38px, 4vw, 48px);
-}
-
-.page-intro.pricing-intro p {
-  max-width: 700px;
-  margin-top: 14px;
-  font-size: 17px;
-  line-height: 1.55;
 }
 
 .pricing-layout {
@@ -2678,29 +2666,18 @@ button {
   }
 
   .page-intro {
-    padding: 52px 0 46px;
-  }
-
-  .page-intro h1 {
-    font-size: 42px;
-  }
-
-  .page-intro p {
-    font-size: 17px;
-  }
-
-  .page-intro.pricing-intro {
     padding: 36px 0 30px;
   }
 
-  .page-intro.pricing-intro h1 {
+  .page-intro h1 {
     font-size: 39px;
   }
 
-  .page-intro.pricing-intro p {
+  .page-intro p {
     font-size: 16px;
   }
 
+  .page-intro + .page-section,
   .page-section.pricing-page {
     padding-top: 28px;
   }
