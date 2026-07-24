@@ -6,43 +6,40 @@ import { CheckCircle, Download, Monitor } from "./icons";
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
+    setError("");
 
     const formData = new FormData(e.currentTarget);
     const payload = Object.fromEntries(formData.entries());
-    const subject = `LohnMail Testzugang – ${String(payload.firmenname || "Anfrage")}`;
-    const body = [
-      `Firmenname: ${String(payload.firmenname || "")}`,
-      `Ansprechpartner: ${String(payload.ansprechpartner || "")}`,
-      `E-Mail: ${String(payload.email || "")}`,
-      `Telefonnummer: ${String(payload.telefon || "Nicht angegeben")}`,
-      `Anzahl Mitarbeitende: ${String(payload.mitarbeitende || "Nicht angegeben")}`,
-      "",
-      "Nachricht:",
-      String(payload.nachricht || "Keine zusätzliche Nachricht."),
-    ].join("\n");
 
     try {
-      // Anfrage an die eigene API-Route senden.
-      // Dort kann z. B. ein E-Mail-Versand (Resend, Nodemailer, SMTP)
-      // oder ein CRM-Eintrag angebunden werden.
-      await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-    } catch {
-      // Auch bei Netzwerkfehlern die Bestätigung zeigen —
-      // in Produktion hier ggf. Fehlerbehandlung ergänzen.
+
+      const result = (await response.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.error || "Die Anfrage konnte nicht gesendet werden.");
+      }
+
+      setSent(true);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+      );
     } finally {
       setSending(false);
-      setSent(true);
-      window.setTimeout(() => {
-        window.location.href = `mailto:support@lohn-mail.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      }, 150);
     }
   }
 
@@ -55,7 +52,7 @@ export default function ContactForm() {
           </div>
           <div>
             <h3>Vielen Dank. Wählen Sie Ihre Version.</h3>
-            <p>Die Anfrage an <strong>support@lohn-mail.de</strong> wurde vorbereitet.</p>
+            <p>Ihre Anfrage wurde an <strong>support@lohn-mail.de</strong> gesendet.</p>
           </div>
         </div>
 
@@ -72,7 +69,7 @@ export default function ContactForm() {
           </a>
         </div>
 
-        <p className="download-note">Das E-Mail-Programm öffnet sich separat. Senden Sie die vorbereitete Anfrage ab, damit wir Sie persönlich kontaktieren können.</p>
+        <p className="download-note">Wir haben Ihre Anfrage erhalten und melden uns persönlich bei Ihnen.</p>
       </div>
     );
   }
@@ -80,6 +77,11 @@ export default function ContactForm() {
   return (
     <div className="contact-wrap">
       <form className="form-grid" onSubmit={handleSubmit}>
+        <div className="form-honeypot" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
         <div className="form-field">
           <label htmlFor="firma">Firmenname *</label>
           <input id="firma" name="firmenname" type="text" required autoComplete="organization" />
@@ -130,6 +132,12 @@ export default function ContactForm() {
         <button type="submit" className="btn btn-primary btn-lg" disabled={sending}>
           {sending ? "Wird gesendet…" : "Testzugang anfragen"}
         </button>
+
+        {error ? (
+          <p className="form-error" role="alert">
+            {error}
+          </p>
+        ) : null}
       </form>
     </div>
   );

@@ -1447,6 +1447,22 @@ button {
   grid-column: 1 / -1;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #b42318;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .form-success {
   text-align: center;
   padding: 48px 20px;

@@ -26,11 +26,26 @@ vercel
 
 ## Контактная форма
 
-Форма отправляет POST на `/api/contact` (`app/api/contact/route.ts`). Сейчас там заглушка (лог в консоль + ответ ok). Чтобы получать заявки на почту, подключи один из вариантов:
+Форма отправляет POST на `/api/contact` (`app/api/contact/route.ts`) и доставляет
+заявку через серверный SMTP с помощью Nodemailer. Для Google используются
+`smtp.gmail.com`, порт `587` и STARTTLS.
 
-- **Resend** (рекомендуется на Vercel): `npm i resend`, добавь `RESEND_API_KEY` в Environment Variables на Vercel, раскомментируй пример в `route.ts`.
-- **Nodemailer + SMTP** твоего почтового сервера.
-- Запись в Google Sheet / CRM.
+Добавь в `.env.local` для локальной разработки и в Vercel Environment Variables:
+
+```bash
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-google-account@gmail.com
+SMTP_PASS=your-16-character-app-password
+SMTP_FROM=your-google-account@gmail.com
+CONTACT_TO=support@lohn-mail.de
+```
+
+`SMTP_USER` и `SMTP_PASS` обязательны. Остальные значения имеют указанные выше
+значения по умолчанию. Для Google-аккаунта должна быть включена двухэтапная
+аутентификация, а в `SMTP_PASS` указывается отдельный 16-значный App Password.
+Обычный пароль Google-аккаунта использовать нельзя.
 
 ## Структура
 
