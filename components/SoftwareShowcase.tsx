@@ -30,6 +30,62 @@ const views = [
   },
 ];
 
+function MobileSoftwarePreview({
+  active,
+  alt,
+}: {
+  active: number;
+  alt: string;
+}) {
+  if (active === 0) {
+    return (
+      <div className="software-mobile-preview dashboard-mobile-preview" role="img" aria-label={alt}>
+        <div className="dashboard-mobile-title" />
+        <div className="software-mobile-kpis dashboard-mobile-kpis">
+          <div className="software-mobile-crop dashboard-mobile-kpi-1" />
+          <div className="software-mobile-crop dashboard-mobile-kpi-2" />
+          <div className="software-mobile-crop dashboard-mobile-kpi-3" />
+          <div className="software-mobile-crop dashboard-mobile-kpi-4" />
+        </div>
+        <div className="software-mobile-crop dashboard-mobile-status" />
+      </div>
+    );
+  }
+
+  if (active === 1) {
+    return (
+      <div className="software-mobile-preview pruefung-mobile-preview" role="img" aria-label={alt}>
+        <div className="pruefung-mobile-title" />
+        <div className="software-mobile-kpis pruefung-mobile-kpis">
+          <div className="software-mobile-crop pruefung-mobile-kpi-1" />
+          <div className="software-mobile-crop pruefung-mobile-kpi-2" />
+          <div className="software-mobile-crop pruefung-mobile-kpi-3" />
+          <div className="software-mobile-crop pruefung-mobile-kpi-4" />
+        </div>
+        <div className="software-mobile-crop pruefung-mobile-filters" />
+        <div className="software-mobile-crop pruefung-mobile-table" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="software-mobile-preview berichte-mobile-preview" role="img" aria-label={alt}>
+      <div className="berichte-mobile-title" />
+      <div className="software-mobile-kpis berichte-mobile-kpis">
+        <div className="software-mobile-crop berichte-mobile-kpi-1" />
+        <div className="software-mobile-crop berichte-mobile-kpi-2" />
+        <div className="software-mobile-crop berichte-mobile-kpi-4" />
+        <div className="software-mobile-crop berichte-mobile-kpi-5" />
+      </div>
+      <div className="berichte-mobile-files">
+        <div className="software-mobile-crop berichte-mobile-file-1" />
+        <div className="software-mobile-crop berichte-mobile-file-2" />
+      </div>
+      <div className="software-mobile-crop berichte-mobile-chart" />
+    </div>
+  );
+}
+
 export default function SoftwareShowcase() {
   const [active, setActive] = useState(0);
   const view = views[active];
@@ -57,8 +113,14 @@ export default function SoftwareShowcase() {
           ))}
         </div>
 
-        <div className="software-frame" id="software-view" role="tabpanel">
-          <picture>
+        <div
+          className="software-frame software-mobile-composite-frame"
+          id="software-view"
+          role="tabpanel"
+        >
+          <MobileSoftwarePreview active={active} alt={view.alt} />
+
+          <picture className="software-desktop-picture">
             <source media="(max-width: 720px)" srcSet={view.mobileImage} />
             <img src={view.image} alt={view.alt} width="1440" height="900" />
           </picture>

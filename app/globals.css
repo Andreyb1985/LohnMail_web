@@ -962,6 +962,10 @@ button {
   object-position: top;
 }
 
+.software-mobile-preview {
+  display: none;
+}
+
 .software-caption {
   display: grid;
   padding: 24px 4px 0;
@@ -1786,8 +1790,185 @@ button {
     border-radius: var(--radius);
   }
 
+  .software-frame.software-mobile-composite-frame {
+    aspect-ratio: 4 / 5;
+  }
+
   .software-frame img {
     object-position: top left;
+  }
+
+  .software-mobile-composite-frame .software-desktop-picture {
+    display: none;
+  }
+
+  .software-mobile-preview {
+    display: grid;
+    height: 100%;
+    padding: 12px;
+    align-content: start;
+    gap: 10px;
+    background: #f5f7f8;
+  }
+
+  .software-mobile-crop {
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: 7px;
+    background-color: #fff;
+  }
+
+  .software-mobile-kpis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .dashboard-mobile-title,
+  .dashboard-mobile-preview .software-mobile-crop {
+    background-image: url("/dashboard-current.jpg");
+    background-repeat: no-repeat;
+  }
+
+  .dashboard-mobile-title {
+    aspect-ratio: 800 / 60;
+    background-position: 40.2% 10.5%;
+    background-size: 180% 1500%;
+  }
+
+  .dashboard-mobile-kpis .software-mobile-crop {
+    aspect-ratio: 277 / 122;
+    background-size: 519.9% 737.7%;
+    background-position-y: 20.3%;
+  }
+
+  .dashboard-mobile-kpi-1 {
+    background-position-x: 22.1%;
+  }
+
+  .dashboard-mobile-kpi-2 {
+    background-position-x: 47.3%;
+  }
+
+  .dashboard-mobile-kpi-3 {
+    background-position-x: 72.7%;
+  }
+
+  .dashboard-mobile-kpi-4 {
+    background-position-x: 97.9%;
+  }
+
+  .dashboard-mobile-status {
+    aspect-ratio: 332 / 224;
+    background-position: 56.1% 43.8%;
+    background-size: 433.7% 401.8%;
+  }
+
+  .pruefung-mobile-title,
+  .pruefung-mobile-preview .software-mobile-crop {
+    background-image: url("/pruefung-current.jpg");
+    background-repeat: no-repeat;
+  }
+
+  .pruefung-mobile-title {
+    aspect-ratio: 700 / 60;
+    background-position: 34.7% 10.5%;
+    background-size: 205.7% 1500%;
+  }
+
+  .pruefung-mobile-kpis .software-mobile-crop {
+    aspect-ratio: 276 / 105;
+    background-size: 521.7% 857.1%;
+    background-position-y: 35%;
+  }
+
+  .pruefung-mobile-kpi-1 {
+    background-position-x: 22.1%;
+  }
+
+  .pruefung-mobile-kpi-2 {
+    background-position-x: 47.1%;
+  }
+
+  .pruefung-mobile-kpi-3 {
+    background-position-x: 72.1%;
+  }
+
+  .pruefung-mobile-kpi-4 {
+    background-position-x: 97.1%;
+  }
+
+  .pruefung-mobile-filters {
+    aspect-ratio: 430 / 43;
+    background-position: 25.4% 46.8%;
+    background-size: 334.9% 2093%;
+  }
+
+  .pruefung-mobile-table {
+    aspect-ratio: 529 / 260;
+    background-position: 28.2% 79.1%;
+    background-size: 272.2% 346.2%;
+  }
+
+  .berichte-mobile-title,
+  .berichte-mobile-preview .software-mobile-crop {
+    background-image: url("/berichte-current.jpg");
+    background-repeat: no-repeat;
+  }
+
+  .berichte-mobile-title {
+    aspect-ratio: 700 / 60;
+    background-position: 34.7% 10.5%;
+    background-size: 205.7% 1500%;
+  }
+
+  .berichte-mobile-kpis .software-mobile-crop {
+    aspect-ratio: 217 / 111;
+    background-size: 663.6% 810.8%;
+    background-position-y: 19.9%;
+  }
+
+  .berichte-mobile-kpi-1 {
+    background-position-x: 21%;
+  }
+
+  .berichte-mobile-kpi-2 {
+    background-position-x: 40.1%;
+  }
+
+  .berichte-mobile-kpi-4 {
+    background-position-x: 78.2%;
+  }
+
+  .berichte-mobile-kpi-5 {
+    background-position-x: 97.1%;
+  }
+
+  .berichte-mobile-files {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .berichte-mobile-files .software-mobile-crop {
+    aspect-ratio: 364 / 61;
+    background-size: 395.6% 1475.4%;
+    background-position-y: 47.3%;
+  }
+
+  .berichte-mobile-file-1 {
+    background-position-x: 25.6%;
+  }
+
+  .berichte-mobile-file-2 {
+    background-position-x: 60.3%;
+  }
+
+  .berichte-mobile-chart {
+    aspect-ratio: 783 / 295;
+    background-position: 39.1% 81%;
+    background-size: 183.9% 305.1%;
   }
 
   .software-caption {
