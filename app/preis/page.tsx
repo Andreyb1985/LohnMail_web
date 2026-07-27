@@ -39,6 +39,9 @@ export default function PricingPage() {
             <div className="pricing-price">
               40&nbsp;€ <span>/ Monat</span>
             </div>
+            <small className="pricing-tax-note">
+              Endpreis. Soweit Umsatzsteuer anfällt, ist sie enthalten.
+            </small>
             <p>
               Für Unternehmen, HR-Abteilungen, Lohnbuchhaltungsteams und
               Steuerkanzleien.

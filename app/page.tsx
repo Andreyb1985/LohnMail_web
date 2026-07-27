@@ -94,7 +94,7 @@ export default function OverviewPage() {
           </div>
           <div>
             <strong>40 € / Monat</strong>
-            <span>2 Monate kostenlos testen</span>
+            <span>Endpreis · 2 Monate kostenlos testen</span>
           </div>
         </div>
       </section>

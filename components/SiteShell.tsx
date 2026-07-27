@@ -29,6 +29,16 @@ const navigation = [
   { href: "/preis", label: "Preis", icon: Euro },
 ];
 
+const utilityTitles: Record<string, string> = {
+  "/testzugang": "Testzugang",
+  "/impressum": "Impressum",
+  "/datenschutz": "Datenschutz",
+  "/agb": "AGB",
+  "/widerrufsbelehrung": "Widerruf",
+  "/widerruf": "Vertrag widerrufen",
+  "/kuendigen": "Vertrag kündigen",
+};
+
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,7 +50,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
   const activePage =
     navigation.find((item) =>
       item.href === "/" ? pathname === "/" : pathname.startsWith(item.href),
-    )?.label ?? "Testzugang";
+    )?.label ?? utilityTitles[pathname] ?? "LohnMail";
 
   return (
     <div className={`site-shell${menuOpen ? " menu-open" : ""}`}>
@@ -130,8 +140,16 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           </div>
           <div className="shell-footer-links">
             <a href="mailto:support@lohn-mail.de">Kontakt</a>
-            <a href="#impressum">Impressum</a>
-            <a href="#datenschutz">Datenschutz</a>
+            <Link href="/impressum">Impressum</Link>
+            <Link href="/datenschutz">Datenschutz</Link>
+            <Link href="/agb">AGB</Link>
+            <Link href="/widerrufsbelehrung">Widerrufsbelehrung</Link>
+            <Link className="legal-action-link" href="/widerruf">
+              Vertrag widerrufen
+            </Link>
+            <Link className="legal-action-link" href="/kuendigen">
+              Verträge hier kündigen
+            </Link>
           </div>
         </footer>
       </div>

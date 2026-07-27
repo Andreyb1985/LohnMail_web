@@ -124,8 +124,12 @@ export default function ContactForm() {
         <label className="form-check">
           <input type="checkbox" name="datenschutz" required />
           <span>
-            Ich habe die <a href="#datenschutz" style={{ textDecoration: "underline" }}>Datenschutzerklärung</a>{" "}
-            gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu. *
+            Ich habe die{" "}
+            <a href="/datenschutz" style={{ textDecoration: "underline" }}>
+              Datenschutzerklärung
+            </a>{" "}
+            zur Verarbeitung meiner Angaben bei Kontakt- und Testzugangsanfragen
+            zur Kenntnis genommen. *
           </span>
         </label>
 
