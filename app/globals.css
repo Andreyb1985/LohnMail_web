@@ -1534,28 +1534,29 @@ button {
   gap: 14px;
 }
 
-.download-options > a {
+.download-placeholder {
   display: grid;
-  min-height: 92px;
+  min-height: 112px;
   padding: 16px;
-  grid-template-columns: 48px 1fr 22px;
+  grid-template-columns: 48px minmax(0, 1fr);
   align-items: center;
   gap: 13px;
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: #fbfcfd;
-  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 
-.download-options > a:hover {
-  border-color: var(--brand);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-1px);
-}
-
-.download-options > a > svg {
-  color: var(--brand);
+.download-placeholder .download-status {
+  display: inline-flex;
+  width: fit-content;
+  margin-left: 61px;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand-strong);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .platform-icon {

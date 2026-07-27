@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Download, Monitor } from "./icons";
+import { CheckCircle, Clock, Monitor } from "./icons";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -51,25 +51,40 @@ export default function ContactForm() {
             <CheckCircle size={28} />
           </div>
           <div>
-            <h3>Vielen Dank. Wählen Sie Ihre Version.</h3>
+            <h3>Vielen Dank. Ihre Anfrage ist eingegangen.</h3>
             <p>Ihre Anfrage wurde an <strong>support@lohn-mail.de</strong> gesendet.</p>
           </div>
         </div>
 
-        <div className="download-options" aria-label="LohnMail herunterladen">
-          <a href="/downloads/LohnMail-Setup-Windows.exe" download>
+        <div className="download-options" aria-label="Verfügbare LohnMail-Versionen">
+          <div className="download-placeholder" aria-disabled="true">
             <span className="platform-icon"><Monitor size={24} /></span>
-            <span><strong>Für Windows</strong><small>Windows 10 und 11 · EXE</small></span>
-            <Download size={20} />
-          </a>
-          <a href="/downloads/LohnMail-macOS.dmg" download>
+            <span>
+              <strong>Für Windows</strong>
+              <small>Windows 10 und 11 · EXE</small>
+            </span>
+            <span className="download-status">
+              <Clock size={14} />
+              In Vorbereitung
+            </span>
+          </div>
+          <div className="download-placeholder" aria-disabled="true">
             <span className="platform-icon platform-text">MAC</span>
-            <span><strong>Für macOS</strong><small>Apple Silicon und Intel · DMG</small></span>
-            <Download size={20} />
-          </a>
+            <span>
+              <strong>Für macOS</strong>
+              <small>Apple Silicon und Intel · DMG</small>
+            </span>
+            <span className="download-status">
+              <Clock size={14} />
+              In Vorbereitung
+            </span>
+          </div>
         </div>
 
-        <p className="download-note">Wir haben Ihre Anfrage erhalten und melden uns persönlich bei Ihnen.</p>
+        <p className="download-note">
+          Die Download-Dateien werden derzeit vorbereitet. Sobald Ihre Version
+          freigeschaltet ist, erhalten Sie den Downloadlink per E-Mail.
+        </p>
       </div>
     );
   }
