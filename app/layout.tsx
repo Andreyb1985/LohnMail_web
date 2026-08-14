@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   title: "LohnMail – Lohnabrechnungen automatisch und sicher per E-Mail versenden",
   description:
     "LohnMail automatisiert den Versand von Lohnabrechnungen: PDF-Import, Excel-Abgleich, Personalnummer-Erkennung, Verschlüsselung, E-Mail-Versand und Berichte. 2 Monate kostenlos testen.",
+  icons: {
+    icon: "/lohnmail-icon.png",
+    apple: "/lohnmail-icon.png",
+  },
   keywords: [
     "Lohnabrechnung per E-Mail versenden",
     "Lohnabrechnungen digital versenden",
