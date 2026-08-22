@@ -5,6 +5,7 @@ import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 
 const GOOGLE_ANALYTICS_ID = "G-133RNTTSW2";
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GOOGLE_ANALYTICS_ID}');`}
         </Script>
+        {RECAPTCHA_SITE_KEY ? (
+          <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+            strategy="afterInteractive"
+          />
+        ) : null}
       </head>
       <body>
         <SiteShell>{children}</SiteShell>

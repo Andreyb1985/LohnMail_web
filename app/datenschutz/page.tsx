@@ -155,12 +155,33 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>8. Cookies, Reichweitenmessung und Schriftarten</h2>
+        <h2>8. Google Analytics, reCAPTCHA und Schriftarten</h2>
         <p>
-          Auf der LohnMail-Website setzen wir derzeit keine eigenen
-          Marketing-Cookies und keine Dienste zur personalisierten Werbung oder
-          Reichweitenmessung ein. Technisch erforderliche Speicherungen können
-          durch Hosting- oder Sicherheitsfunktionen erfolgen.
+          Zur Reichweitenmessung ist auf der Website Google Analytics über den
+          Google-Tag eingebunden. Dabei können insbesondere technische
+          Geräteinformationen, Nutzungsdaten, aufgerufene Seiten und gekürzte
+          IP-Informationen verarbeitet werden. Google kann hierfür Cookies oder
+          vergleichbare Technologien einsetzen.
+        </p>
+        <p>
+          Zum Schutz unserer Formulare vor automatisierten Eingaben und Missbrauch
+          verwenden wir Google reCAPTCHA v3. Der Dienst bewertet technische Daten
+          und Interaktionen mit der Website, um menschliche Eingaben von
+          automatisierten Zugriffen zu unterscheiden. Dabei können insbesondere
+          IP-Adresse, Browser- und Geräteinformationen, Referrer, Zeitpunkt und
+          Interaktionsdaten an Google übermittelt werden.
+        </p>
+        <p>
+          Anbieter für Nutzer im Europäischen Wirtschaftsraum ist Google Ireland
+          Limited, Gordon House, Barrow Street, Dublin 4, Irland. Der Einsatz von
+          reCAPTCHA erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser
+          berechtigtes Interesse liegt im Schutz der Formulare und der
+          E-Mail-Infrastruktur vor Spam und automatisiertem Missbrauch. Weitere
+          Informationen finden Sie in der{" "}
+          <a href="https://policies.google.com/privacy">Datenschutzerklärung</a>{" "}
+          und den{" "}
+          <a href="https://policies.google.com/terms">Nutzungsbedingungen</a>{" "}
+          von Google.
         </p>
         <p>
           Beim Wechsel zu Stripe gelten die dortigen technischen und

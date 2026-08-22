@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { verifyRecaptchaToken } from "@/lib/recaptcha-server";
 
 export const runtime = "nodejs";
 
@@ -13,6 +14,7 @@ type LegalRequest = {
   grund?: unknown;
   mitteilung?: unknown;
   website?: unknown;
+  recaptchaToken?: unknown;
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,6 +78,17 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { ok: false, error: "Bitte wählen Sie die Art der Kündigung." },
         { status: 400 },
+      );
+    }
+
+    const recaptcha = await verifyRecaptchaToken(
+      readText(payload.recaptchaToken, 4096),
+      kind,
+    );
+    if (!recaptcha.ok) {
+      return NextResponse.json(
+        { ok: false, error: recaptcha.error },
+        { status: recaptcha.status },
       );
     }
 

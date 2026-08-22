@@ -1,0 +1,344 @@
+.carousel {
+  display: grid;
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-float);
+}
+
+.carousel button {
+  cursor: pointer;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--border);
+  background: #fbfcfd;
+}
+
+.tabs button {
+  position: relative;
+  min-width: 0;
+  min-height: 54px;
+  padding: 10px 12px 12px;
+  overflow: hidden;
+  color: var(--text-secondary);
+  border: 0;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.tabs button + button {
+  border-left: 1px solid var(--border);
+}
+
+.tabs button:hover,
+.tabs button:focus-visible {
+  color: var(--text);
+  background: #f4f7f6;
+}
+
+.tabs .activeTab {
+  color: var(--brand-strong);
+  background: var(--brand-tint);
+}
+
+.progressTrack {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.progressValue {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--brand);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.panel {
+  display: grid;
+  min-height: 0;
+  padding: 34px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(190px, .95fr);
+  align-items: center;
+  gap: 28px;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.securityActive .panel {
+  color: #fff;
+  background: linear-gradient(150deg, #073b28, #0a5238 65%, #0c6343);
+}
+
+.copy {
+  min-width: 0;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--brand-strong);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.securityActive .kicker {
+  color: #a7e3c9;
+}
+
+.copy h2 {
+  max-width: 450px;
+  font-size: 32px;
+  line-height: 1.08;
+}
+
+.copy p {
+  max-width: 520px;
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.securityActive .copy p {
+  color: #d3ede0;
+}
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.process > span {
+  display: grid;
+  min-height: 86px;
+  padding: 13px;
+  grid-template-columns: 22px 1fr;
+  align-content: center;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.process svg {
+  grid-row: 1 / 3;
+  margin-top: 2px;
+  color: var(--brand);
+}
+
+.process b,
+.process small {
+  display: block;
+}
+
+.process b {
+  font-size: 13px;
+}
+
+.process small {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.securityPoints {
+  display: grid;
+  min-width: 0;
+  padding-left: 22px;
+  gap: 13px;
+  border-left: 2px solid #76d6a4;
+}
+
+.securityPoints strong,
+.securityPoints span {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+}
+
+.securityPoints strong {
+  margin-bottom: 6px;
+  font-family: var(--font-display);
+  font-size: 25px;
+}
+
+.securityPoints span {
+  color: #d3ede0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.securityPoints svg {
+  flex: 0 0 auto;
+  color: #76d6a4;
+}
+
+.companyList {
+  border-block: 1px solid var(--brand-tint-2);
+}
+
+.companyList > span {
+  display: grid;
+  min-height: 58px;
+  padding: 10px 4px;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+}
+
+.companyList > span + span {
+  border-top: 1px solid var(--brand-tint-2);
+}
+
+.companyList svg,
+.companyList > span > b {
+  color: var(--brand);
+}
+
+.companyList b,
+.companyList strong {
+  min-width: 0;
+  font-size: 13px;
+}
+
+.companyList small {
+  color: var(--brand-strong);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.footer {
+  display: grid;
+  min-height: 54px;
+  padding: 7px 10px;
+  grid-template-columns: 36px 1fr 36px;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  background: #fbfcfd;
+}
+
+.arrow,
+.pagination button {
+  display: grid;
+  place-items: center;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  border-color: var(--border);
+  border-radius: 7px;
+  background: var(--card);
+  font-size: 17px;
+}
+
+.arrow:hover,
+.arrow:focus-visible {
+  color: var(--brand-strong);
+  border-color: var(--brand-tint-2);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pagination button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pagination button:hover,
+.pagination button:focus-visible {
+  color: var(--text);
+  background: #edf2f0;
+}
+
+.pagination .activePage {
+  color: #fff;
+  background: var(--brand);
+}
+
+@media (max-width: 720px) {
+  .carousel {
+    height: 590px;
+  }
+
+  .tabs button {
+    min-height: 52px;
+    padding-inline: 7px;
+    font-size: 12px;
+  }
+
+  .panel {
+    padding: 26px 22px;
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 26px;
+  }
+
+  .copy h2 {
+    font-size: 28px;
+  }
+
+  .copy p {
+    font-size: 14px;
+  }
+
+  .securityPoints {
+    padding-left: 17px;
+  }
+}
+
+@media (max-width: 410px) {
+  .carousel {
+    height: 610px;
+  }
+
+  .panel {
+    padding-inline: 18px;
+  }
+
+  .copy h2 {
+    font-size: 26px;
+  }
+
+  .companyList > span {
+    grid-template-columns: 22px minmax(0, 1fr);
+  }
+
+  .companyList small {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressValue {
+    display: none;
+  }
+}

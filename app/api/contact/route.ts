@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { verifyRecaptchaToken } from "@/lib/recaptcha-server";
 
 export const runtime = "nodejs";
 
@@ -12,6 +13,7 @@ type ContactRequest = {
   nachricht?: unknown;
   datenschutz?: unknown;
   website?: unknown;
+  recaptchaToken?: unknown;
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,6 +63,17 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { ok: false, error: "Bitte prüfen Sie die Pflichtfelder." },
         { status: 400 },
+      );
+    }
+
+    const recaptcha = await verifyRecaptchaToken(
+      readText(payload.recaptchaToken, 4096),
+      "contact",
+    );
+    if (!recaptcha.ok) {
+      return NextResponse.json(
+        { ok: false, error: recaptcha.error },
+        { status: recaptcha.status },
       );
     }
 

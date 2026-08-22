@@ -13,28 +13,24 @@ const overviewLinks = [
   {
     href: "/so-funktioniert-es",
     icon: Clock,
-    number: "01",
     title: "Ein klarer Monatslauf",
     text: "Vom Sammel-PDF über die Prüfung bis zum dokumentierten Versand.",
   },
   {
     href: "/software",
     icon: Monitor,
-    number: "02",
     title: "Vor dem Versand prüfen",
     text: "Fehlende Daten, Warnungen und offene Fälle rechtzeitig erkennen.",
   },
   {
     href: "/sicherheit",
     icon: Shield,
-    number: "03",
     title: "Lokal und nachvollziehbar",
     text: "Sensible Lohndaten bleiben in Ihrer kontrollierten Arbeitsumgebung.",
   },
   {
     href: "/vorteile",
     icon: BarChart,
-    number: "04",
     title: "Weniger Aufwand jeden Monat",
     text: "Zeit, Papier, Material und wiederkehrende manuelle Arbeit sparen.",
   },
@@ -117,7 +113,6 @@ export default function OverviewPage() {
               const Icon = item.icon;
               return (
                 <Link href={item.href} className="overview-link" key={item.href}>
-                  <span className="overview-number">{item.number}</span>
                   <span className="overview-icon">
                     <Icon size={20} />
                   </span>

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { CheckCircle, Clock, Monitor } from "./icons";
+import RecaptchaNotice from "./RecaptchaNotice";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -14,9 +16,13 @@ export default function ContactForm() {
     setError("");
 
     const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
 
     try {
+      const recaptchaToken = await getRecaptchaToken("contact");
+      const payload = {
+        ...Object.fromEntries(formData.entries()),
+        recaptchaToken,
+      };
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -151,6 +157,8 @@ export default function ContactForm() {
         <button type="submit" className="btn btn-primary btn-lg" disabled={sending}>
           {sending ? "Wird gesendet…" : "Testzugang anfragen"}
         </button>
+
+        <RecaptchaNotice />
 
         {error ? (
           <p className="form-error" role="alert">

@@ -77,6 +77,19 @@ a {
   text-decoration: none;
 }
 
+a[href],
+button:not(:disabled),
+select,
+[role="button"],
+[role="tab"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
 img, svg {
   display: block;
   max-width: 100%;
@@ -1451,6 +1464,19 @@ button {
   grid-column: 1 / -1;
 }
 
+.recaptcha-notice {
+  grid-column: 1 / -1;
+  margin-top: -5px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.recaptcha-notice a {
+  color: var(--brand-strong);
+  text-decoration: underline;
+}
+
 .form-honeypot {
   position: absolute;
   left: -10000px;
@@ -2320,12 +2346,6 @@ button {
   background: #f8fafb;
 }
 
-.overview-number {
-  color: var(--info);
-  font-size: 12px;
-  font-weight: 700;
-}
-
 .overview-icon {
   display: grid;
   width: 42px;
@@ -3071,8 +3091,8 @@ button {
   }
 
   .shell-mobile-brand .logo-image {
-    width: 31px;
-    height: 31px;
+    width: 36px;
+    height: 36px;
     border-radius: 7px;
   }
 

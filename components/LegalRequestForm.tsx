@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { CheckCircle } from "./icons";
+import RecaptchaNotice from "./RecaptchaNotice";
+import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 type RequestMode = "withdrawal" | "cancellation";
 
@@ -19,9 +21,13 @@ export default function LegalRequestForm({ mode }: { mode: RequestMode }) {
     setError("");
 
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
 
     try {
+      const recaptchaToken = await getRecaptchaToken(mode);
+      const payload = {
+        ...Object.fromEntries(formData.entries()),
+        recaptchaToken,
+      };
       const response = await fetch("/api/legal-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -185,6 +191,8 @@ export default function LegalRequestForm({ mode }: { mode: RequestMode }) {
               ? "Widerruf bestätigen"
               : "jetzt kündigen"}
         </button>
+
+        <RecaptchaNotice />
 
         {error ? (
           <p className="form-error" role="alert">
