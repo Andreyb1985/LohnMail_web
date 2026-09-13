@@ -21,12 +21,20 @@ const views = [
     text: "Kritische Fehler, Warnungen und Hinweise werden gesammelt dargestellt und lassen sich gezielt bearbeiten.",
   },
   {
-    label: "Berichte",
-    image: "/berichte-current.jpg",
-    mobileImage: "/berichte-mobile.jpg",
-    alt: "Berichtsansicht mit Versandstatus und Monatsdaten in LohnMail",
-    title: "Jeder Lauf bleibt nachvollziehbar",
-    text: "Versandstatus, offene Fälle und Exporte stehen für interne Kontrolle und spätere Rückfragen bereit.",
+    label: "Versand",
+    image: "/versand-current.png",
+    mobileImage: "/versand-current.png",
+    alt: "Versandansicht mit vorbereiteten Lohnabrechnungen in LohnMail",
+    title: "Den Versand sicher vorbereiten",
+    text: "Versandbereite Abrechnungen, fehlende E-Mail-Adressen und der aktuelle Status sind vor dem Senden klar erkennbar.",
+  },
+  {
+    label: "Unternehmen",
+    image: "/unternehmen-current.png",
+    mobileImage: "/unternehmen-current.png",
+    alt: "Unternehmensverwaltung mit Mandanten und Stammdaten in LohnMail",
+    title: "Mandanten zentral verwalten",
+    text: "Unternehmen, Excel-Stammdaten, Ausgabeordner und individuelle E-Mail-Einstellungen werden übersichtlich verwaltet.",
   },
 ];
 
@@ -68,22 +76,7 @@ function MobileSoftwarePreview({
     );
   }
 
-  return (
-    <div className="software-mobile-preview berichte-mobile-preview" role="img" aria-label={alt}>
-      <div className="berichte-mobile-title" />
-      <div className="software-mobile-kpis berichte-mobile-kpis">
-        <div className="software-mobile-crop berichte-mobile-kpi-1" />
-        <div className="software-mobile-crop berichte-mobile-kpi-2" />
-        <div className="software-mobile-crop berichte-mobile-kpi-4" />
-        <div className="software-mobile-crop berichte-mobile-kpi-5" />
-      </div>
-      <div className="berichte-mobile-files">
-        <div className="software-mobile-crop berichte-mobile-file-1" />
-        <div className="software-mobile-crop berichte-mobile-file-2" />
-      </div>
-      <div className="software-mobile-crop berichte-mobile-chart" />
-    </div>
-  );
+  return null;
 }
 
 export default function SoftwareShowcase() {
@@ -114,7 +107,7 @@ export default function SoftwareShowcase() {
         </div>
 
         <div
-          className="software-frame software-mobile-composite-frame"
+          className={`software-frame software-mobile-composite-frame${active >= 2 ? " software-full-mobile-frame" : ""}`}
           id="software-view"
           role="tabpanel"
         >

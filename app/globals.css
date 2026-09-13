@@ -1829,6 +1829,14 @@ button {
     display: none;
   }
 
+  .software-mobile-composite-frame.software-full-mobile-frame {
+    aspect-ratio: 2880 / 1744;
+  }
+
+  .software-mobile-composite-frame.software-full-mobile-frame .software-desktop-picture {
+    display: block;
+  }
+
   .software-mobile-preview {
     display: grid;
     height: 100%;
