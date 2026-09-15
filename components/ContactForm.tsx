@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Clock, Monitor } from "./icons";
+import { CheckCircle, Clock, Download, Monitor } from "./icons";
 import RecaptchaNotice from "./RecaptchaNotice";
 import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
@@ -63,17 +63,22 @@ export default function ContactForm() {
         </div>
 
         <div className="download-options" aria-label="Verfügbare LohnMail-Versionen">
-          <div className="download-placeholder" aria-disabled="true">
+          <a
+            className="download-placeholder download-link"
+            href="https://apps.microsoft.com/detail/9PK5RR3LQ9N9"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span className="platform-icon"><Monitor size={24} /></span>
             <span>
               <strong>Für Windows</strong>
-              <small>Windows 10 und 11 · EXE</small>
+              <small>Windows 10 und 11 · Microsoft Store</small>
             </span>
             <span className="download-status">
-              <Clock size={14} />
-              In Vorbereitung
+              <Download size={14} />
+              Im Microsoft Store öffnen
             </span>
-          </div>
+          </a>
           <div className="download-placeholder" aria-disabled="true">
             <span className="platform-icon platform-text">MAC</span>
             <span>
@@ -88,8 +93,8 @@ export default function ContactForm() {
         </div>
 
         <p className="download-note">
-          Die Download-Dateien werden derzeit vorbereitet. Sobald Ihre Version
-          freigeschaltet ist, erhalten Sie den Downloadlink per E-Mail.
+          Die Windows-Version ist im Microsoft Store verfügbar. Der Download für
+          macOS wird derzeit vorbereitet und nach der Freigabe bereitgestellt.
         </p>
       </div>
     );

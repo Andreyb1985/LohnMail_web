@@ -975,6 +975,11 @@ button {
   object-position: top;
 }
 
+.software-window-crop img {
+  height: 104%;
+  transform: translateY(-4%);
+}
+
 .software-mobile-preview {
   display: none;
 }
@@ -1585,6 +1590,23 @@ button {
   font-weight: 700;
 }
 
+.download-link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.download-link:hover {
+  border-color: var(--brand);
+  box-shadow: 0 8px 22px rgba(0, 138, 91, 0.12);
+  transform: translateY(-2px);
+}
+
+.download-link:focus-visible {
+  outline: 3px solid rgba(0, 138, 91, 0.22);
+  outline-offset: 3px;
+}
+
 .platform-icon {
   display: grid;
   width: 48px;
@@ -1829,14 +1851,6 @@ button {
     display: none;
   }
 
-  .software-mobile-composite-frame.software-full-mobile-frame {
-    aspect-ratio: 2880 / 1744;
-  }
-
-  .software-mobile-composite-frame.software-full-mobile-frame .software-desktop-picture {
-    display: block;
-  }
-
   .software-mobile-preview {
     display: grid;
     height: 100%;
@@ -1944,6 +1958,72 @@ button {
     aspect-ratio: 529 / 260;
     background-position: 28.2% 79.1%;
     background-size: 272.2% 346.2%;
+  }
+
+  .versand-mobile-title,
+  .versand-mobile-preview .software-mobile-crop {
+    background-image: url("/versand-current.png");
+    background-repeat: no-repeat;
+  }
+
+  .versand-mobile-title {
+    aspect-ratio: 1400 / 120;
+    background-position: 39% 11.2%;
+    background-size: 205.7% 1453.3%;
+  }
+
+  .versand-mobile-process {
+    aspect-ratio: 2300 / 205;
+    background-position: 96% 24.6%;
+    background-size: 125.2% 850.7%;
+  }
+
+  .versand-mobile-kpis .software-mobile-crop {
+    aspect-ratio: 445 / 175;
+    background-size: 647.2% 996.6%;
+    background-position-y: 35.6%;
+  }
+
+  .versand-mobile-kpi-1 { background-position-x: 20%; }
+  .versand-mobile-kpi-2 { background-position-x: 42.8%; }
+  .versand-mobile-kpi-3 { background-position-x: 65.7%; }
+  .versand-mobile-kpi-4 { background-position-x: 88.5%; }
+
+  .versand-mobile-table {
+    aspect-ratio: 2100 / 620;
+    background-position: 91% 70%;
+    background-size: 137.1% 281.3%;
+  }
+
+  .unternehmen-mobile-title,
+  .unternehmen-mobile-preview .software-mobile-crop {
+    background-image: url("/unternehmen-current.png");
+    background-repeat: no-repeat;
+  }
+
+  .unternehmen-mobile-title {
+    aspect-ratio: 1400 / 120;
+    background-position: 39% 11.2%;
+    background-size: 205.7% 1453.3%;
+  }
+
+  .unternehmen-mobile-kpis .software-mobile-crop {
+    aspect-ratio: 720 / 220;
+    background-size: 400% 792.7%;
+    background-position-y: 24.1%;
+  }
+
+  .unternehmen-mobile-kpi-1 { background-position-x: 22.2%; }
+  .unternehmen-mobile-kpi-2 { background-position-x: 56.2%; }
+  .unternehmen-mobile-kpi-3 { background-position-x: 90.2%; }
+  .unternehmen-mobile-kpi-4 {
+    background-position: 25.8% 48.3%;
+  }
+
+  .unternehmen-mobile-config {
+    aspect-ratio: 1320 / 580;
+    background-position: 91.5% 52%;
+    background-size: 218.2% 300.7%;
   }
 
   .berichte-mobile-title,

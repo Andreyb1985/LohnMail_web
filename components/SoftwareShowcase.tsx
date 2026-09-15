@@ -76,6 +76,37 @@ function MobileSoftwarePreview({
     );
   }
 
+  if (active === 2) {
+    return (
+      <div className="software-mobile-preview versand-mobile-preview" role="img" aria-label={alt}>
+        <div className="versand-mobile-title" />
+        <div className="software-mobile-crop versand-mobile-process" />
+        <div className="software-mobile-kpis versand-mobile-kpis">
+          <div className="software-mobile-crop versand-mobile-kpi-1" />
+          <div className="software-mobile-crop versand-mobile-kpi-2" />
+          <div className="software-mobile-crop versand-mobile-kpi-3" />
+          <div className="software-mobile-crop versand-mobile-kpi-4" />
+        </div>
+        <div className="software-mobile-crop versand-mobile-table" />
+      </div>
+    );
+  }
+
+  if (active === 3) {
+    return (
+      <div className="software-mobile-preview unternehmen-mobile-preview" role="img" aria-label={alt}>
+        <div className="unternehmen-mobile-title" />
+        <div className="software-mobile-kpis unternehmen-mobile-kpis">
+          <div className="software-mobile-crop unternehmen-mobile-kpi-1" />
+          <div className="software-mobile-crop unternehmen-mobile-kpi-2" />
+          <div className="software-mobile-crop unternehmen-mobile-kpi-3" />
+          <div className="software-mobile-crop unternehmen-mobile-kpi-4" />
+        </div>
+        <div className="software-mobile-crop unternehmen-mobile-config" />
+      </div>
+    );
+  }
+
   return null;
 }
 
@@ -107,13 +138,13 @@ export default function SoftwareShowcase() {
         </div>
 
         <div
-          className={`software-frame software-mobile-composite-frame${active >= 2 ? " software-full-mobile-frame" : ""}`}
+          className="software-frame software-mobile-composite-frame"
           id="software-view"
           role="tabpanel"
         >
           <MobileSoftwarePreview active={active} alt={view.alt} />
 
-          <picture className="software-desktop-picture">
+          <picture className={`software-desktop-picture${active >= 2 ? " software-window-crop" : ""}`}>
             <source media="(max-width: 720px)" srcSet={view.mobileImage} />
             <img src={view.image} alt={view.alt} width="1440" height="900" />
           </picture>
