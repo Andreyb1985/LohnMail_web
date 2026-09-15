@@ -1,6 +1,6 @@
 Place the release installers in this directory using these exact filenames:
 
-- LohnMail-Setup-Windows.exe
 - LohnMail-macOS.dmg
 
-The download screen already points to these files.
+Windows is distributed through Microsoft Store. The download screen points to
+the macOS file in this directory.

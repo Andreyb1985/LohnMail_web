@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Clock, Download, Monitor } from "./icons";
+import { CheckCircle, Download, Monitor } from "./icons";
 import RecaptchaNotice from "./RecaptchaNotice";
 import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
@@ -79,22 +79,26 @@ export default function ContactForm() {
               Im Microsoft Store öffnen
             </span>
           </a>
-          <div className="download-placeholder" aria-disabled="true">
+          <a
+            className="download-placeholder download-link"
+            href="/downloads/LohnMail-macOS.dmg"
+            download
+          >
             <span className="platform-icon platform-text">MAC</span>
             <span>
               <strong>Für macOS</strong>
-              <small>Apple Silicon und Intel · DMG</small>
+              <small>Apple Silicon · DMG</small>
             </span>
             <span className="download-status">
-              <Clock size={14} />
-              In Vorbereitung
+              <Download size={14} />
+              DMG herunterladen
             </span>
-          </div>
+          </a>
         </div>
 
         <p className="download-note">
-          Die Windows-Version ist im Microsoft Store verfügbar. Der Download für
-          macOS wird derzeit vorbereitet und nach der Freigabe bereitgestellt.
+          Die Windows-Version ist im Microsoft Store verfügbar. Die macOS-Version
+          kann direkt als DMG für Apple Silicon heruntergeladen werden.
         </p>
       </div>
     );
