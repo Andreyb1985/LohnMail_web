@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Building, CheckCircle, Clock, Shield } from "./icons";
+import Link from "next/link";
+import { CheckCircle, Clock, Shield } from "./icons";
 import styles from "./HeroBenefitsCarousel.module.css";
 
 const SLIDE_DURATION = 6500;
@@ -21,9 +22,9 @@ const slides = [
   },
   {
     label: "Mandanten",
-    kicker: "Ohne Mandantenlimit",
-    title: "Beliebig viele Unternehmen verwalten.",
-    text: "Nutzen Sie LohnMail für so viele Unternehmen und Mandanten, wie Ihre Lohnbuchhaltung betreut – ohne zusätzliche Begrenzung.",
+    kicker: "40 € im Monat",
+    title: "Mehr Mandanten. Gleicher Preis.",
+    text: "Eine Lizenz für unbegrenzt viele Mandanten und Unternehmen. Ohne zusätzliche Lizenzgebühr pro Mandant.",
   },
 ];
 
@@ -75,7 +76,7 @@ export default function HeroBenefitsCarousel() {
 
   return (
     <div
-      className={`${styles.carousel} ${active === 1 ? styles.securityActive : ""}`}
+      className={`${styles.carousel} ${active === 1 ? styles.securityActive : ""} ${active === 2 ? styles.mandantsActive : ""}`}
       aria-label="Die wichtigsten Vorteile von LohnMail"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -110,6 +111,11 @@ export default function HeroBenefitsCarousel() {
           <span className={styles.kicker}>{slide.kicker}</span>
           <h2>{slide.title}</h2>
           <p>{slide.text}</p>
+          {active === 2 ? (
+            <Link className={styles.priceLink} href="/preis">
+              Preis ansehen <span aria-hidden="true">→</span>
+            </Link>
+          ) : null}
         </div>
 
         {active === 0 ? (
@@ -131,10 +137,14 @@ export default function HeroBenefitsCarousel() {
         ) : null}
 
         {active === 2 ? (
-          <div className={styles.companyList}>
-            <span><Building size={17} /><b>Unternehmen Nord</b><small>bereit</small></span>
-            <span><Building size={17} /><b>Unternehmen Mitte</b><small>bereit</small></span>
-            <span><b>+</b><strong>Weitere Mandanten</strong><small>ohne Limit</small></span>
+          <div className={styles.mandantPricing} aria-label="Monatspreis je Lizenz, unabhängig von der Mandantenanzahl">
+            {[10, 50, 100].map((count) => (
+              <div key={count}>
+                <span><b>{count}</b> Mandanten</span>
+                <strong>40 €</strong>
+              </div>
+            ))}
+            <p>Je Lizenz / Monat · Endpreis</p>
           </div>
         ) : null}
       </div>

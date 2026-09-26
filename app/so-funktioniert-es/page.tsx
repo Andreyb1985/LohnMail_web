@@ -111,9 +111,13 @@ export default function ProcessPage() {
             <Link className="btn btn-primary" href="/software">
               Software ansehen
             </Link>
+            <Link className="btn btn-secondary" href="/hilfe-tutorials">
+              Hilfe &amp; Tutorials
+            </Link>
           </div>
         </div>
       </section>
+
     </>
   );
 }

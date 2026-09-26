@@ -82,7 +82,7 @@ export default function OverviewPage() {
           </div>
           <div>
             <strong>Unbegrenzt viele Mandanten</strong>
-            <span>Eine Anwendung, flexible Nutzung</span>
+            <span>Keine Zusatzgebühr pro Mandant</span>
           </div>
           <div>
             <strong>Windows &amp; macOS</strong>

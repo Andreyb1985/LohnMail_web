@@ -2496,8 +2496,187 @@ button {
   padding-top: 32px;
 }
 
+.tutorial-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 64px;
+  align-items: end;
+}
+
+.tutorial-heading h2 {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.tutorial-heading > p {
+  padding-bottom: 5px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.tutorial-layout {
+  display: grid;
+  margin-top: 42px;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.65fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.tutorial-video-frame {
+  overflow: hidden;
+  aspect-ratio: 24 / 17;
+  scroll-margin-top: 100px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #0d1720;
+  box-shadow: var(--shadow-float);
+}
+
+.tutorial-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0d1720;
+}
+
+.tutorial-current {
+  padding: 22px 2px 0;
+}
+
+.tutorial-current > span {
+  color: var(--brand-strong);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tutorial-current h3 {
+  margin-top: 7px;
+  font-size: 22px;
+}
+
+.tutorial-current p {
+  max-width: 720px;
+  margin-top: 7px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.tutorial-chapters {
+  overflow-y: auto;
+  max-height: 540px;
+  border-block: 1px solid var(--border);
+}
+
+.tutorial-chapter {
+  display: grid;
+  width: 100%;
+  min-height: 66px;
+  padding: 10px 8px;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  color: var(--text);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tutorial-chapter:last-child {
+  border-bottom: 0;
+}
+
+.tutorial-chapter:hover,
+.tutorial-chapter.active {
+  background: var(--brand-tint);
+}
+
+.tutorial-chapter:focus-visible {
+  outline: 3px solid rgba(0, 138, 91, 0.2);
+  outline-offset: -3px;
+}
+
+.tutorial-chapter-number {
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.tutorial-chapter-copy {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tutorial-chapter-copy strong {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.tutorial-chapter-copy small {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.tutorial-downloads {
+  align-self: start;
+  border-top: 1px solid var(--border);
+}
+
+.tutorial-downloads a[download] {
+  display: grid;
+  min-height: 82px;
+  padding: 14px 4px;
+  grid-template-columns: 46px minmax(0, 1fr) 24px;
+  gap: 14px;
+  align-items: center;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+}
+
+.tutorial-downloads a:hover {
+  color: var(--brand-strong);
+}
+
+.tutorial-file-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: var(--brand-strong);
+  border-radius: 7px;
+  background: var(--brand-tint);
+}
+
+.tutorial-downloads strong,
+.tutorial-downloads small {
+  display: block;
+}
+
+.tutorial-downloads strong {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.tutorial-downloads small {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
 .section-action {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: center;
   margin-top: 36px;
 }
@@ -2753,6 +2932,52 @@ button {
   margin-bottom: 24px;
   font-size: 27px;
   letter-spacing: 0;
+}
+
+.pricing-included .pricing-growth-copy {
+  max-width: 640px;
+  margin: -8px 0 26px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.pricing-summary > .pricing-installation-note {
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.pricing-installation-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pricing-next-step {
+  padding: 40px 0;
+  background: var(--brand-tint);
+}
+
+.pricing-next-step > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.pricing-next-step h2 {
+  max-width: 600px;
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.pricing-next-step p {
+  max-width: 600px;
+  margin-top: 10px;
+  color: #475569;
+  font-size: 15px;
 }
 
 .pricing-included ul {
@@ -3396,4 +3621,361 @@ button {
   .legal-form-template {
     padding: 18px;
   }
+}
+
+@media (max-width: 1040px) {
+  .tutorial-heading,
+  .tutorial-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .tutorial-heading > p {
+    max-width: 720px;
+  }
+
+  .tutorial-chapters {
+    display: grid;
+    overflow: visible;
+    max-height: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--border);
+  }
+
+  .tutorial-chapter:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+
+  .tutorial-chapter:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .tutorial-heading h2 {
+    font-size: 24px;
+  }
+
+  .tutorial-layout {
+    margin-top: 28px;
+  }
+
+  .tutorial-video-frame {
+    border-radius: var(--radius);
+  }
+
+  .tutorial-current h3 {
+    font-size: 19px;
+  }
+
+  .tutorial-chapters {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-chapter,
+  .tutorial-chapter:nth-child(odd),
+  .tutorial-chapter:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tutorial-chapter:last-child {
+    border-bottom: 0;
+  }
+
+}
+
+.help-center {
+  padding-bottom: 72px;
+}
+
+.help-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-tabs button {
+  min-height: 64px;
+  padding: 16px 4px;
+  color: var(--text-secondary);
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.help-tabs button:hover,
+.help-tabs button[aria-selected="true"] {
+  color: var(--brand-strong);
+}
+
+.help-tabs button[aria-selected="true"] {
+  border-bottom-color: var(--brand);
+}
+
+.help-tabs button:focus-visible,
+.help-topic summary:focus-visible,
+.help-steps a:focus-visible,
+.help-panel:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+}
+
+.help-panel {
+  padding-top: 36px;
+}
+
+.help-section-heading h2 {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.help-section-heading p {
+  margin-top: 10px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.help-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 32px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.help-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.help-step-number {
+  display: grid;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid #cde6da;
+  border-radius: 50%;
+  color: var(--brand-strong);
+  background: var(--brand-tint);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.help-steps h3 {
+  padding-top: 3px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.help-steps a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+}
+
+.help-steps a:hover {
+  color: var(--brand-strong);
+  text-decoration-color: currentColor;
+}
+
+.help-steps p {
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.help-functions {
+  margin-top: 42px;
+  padding-top: 34px;
+  border-top: 1px solid var(--border);
+}
+
+.help-topics {
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.help-topic {
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 108px;
+}
+
+.help-topic summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 84px;
+  padding: 18px 4px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.help-topic summary::-webkit-details-marker {
+  display: none;
+}
+
+.help-topic summary:hover strong {
+  color: var(--brand-strong);
+}
+
+.help-topic-icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  color: var(--brand-strong);
+  background: var(--brand-tint);
+  border-radius: 7px;
+}
+
+.help-topic-label {
+  min-width: 0;
+}
+
+.help-topic-label strong,
+.help-topic-label small {
+  display: block;
+}
+
+.help-topic-label small {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.help-topic-toggle {
+  display: grid;
+  flex: 0 0 24px;
+  margin-left: auto;
+  place-items: center;
+  color: var(--brand-strong);
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.help-topic-toggle::before { content: "+"; }
+.help-topic[open] .help-topic-toggle::before { content: "−"; }
+
+.help-topic-body {
+  max-width: 940px;
+  padding: 0 44px 26px 60px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.help-topic-body ol,
+.help-instructions {
+  margin: 18px 0;
+  padding-left: 22px;
+}
+
+.help-topic-body li + li,
+.help-instructions li + li {
+  margin-top: 10px;
+}
+
+.help-note {
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 3px solid var(--brand);
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.help-demo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.help-demo-layout h3,
+.help-support h3 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.help-instructions {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.help-download-note {
+  margin: 20px 0 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.help-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-strong);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.help-questions .help-topic summary {
+  min-height: 70px;
+}
+
+.help-questions .help-topic-body {
+  padding-left: 4px;
+}
+
+.help-support {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 32px;
+}
+
+.help-support > div {
+  max-width: 540px;
+}
+
+.help-support p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 1200px) {
+  .help-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1040px) {
+  .help-demo-layout { grid-template-columns: 1fr; gap: 28px; }
+}
+
+@media (max-width: 620px) {
+  .help-page .page-intro h1 { font-size: 34px; }
+  .help-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; }
+  .help-tabs button { min-height: 52px; padding: 12px 4px; }
+  .help-panel { padding-top: 28px; }
+  .help-section-heading h2 { font-size: 24px; }
+  .help-steps { grid-template-columns: 1fr; gap: 20px; }
+  .help-topic summary { gap: 12px; }
+  .help-topic-body { padding: 0 4px 24px; }
+  .help-support .btn { width: 100%; white-space: normal; overflow-wrap: anywhere; }
 }

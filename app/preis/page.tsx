@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Check, Euro } from "@/components/icons";
+import PricingComparison from "@/components/PricingComparison";
 
 const included = [
   "Unbegrenzt viele Mandanten und Unternehmen",
@@ -24,10 +25,10 @@ export default function PricingPage() {
           <span className="eyebrow">
             <Euro size={14} /> Preis
           </span>
-          <h1>Eine klare Lizenz. Alle wichtigen Funktionen.</h1>
+          <h1>Mehr Mandanten. Gleicher Preis.</h1>
           <p>
-            Keine komplizierten Pakete und kein Mandantenlimit. Testen Sie den
-            vollständigen Funktionsumfang zwei Monate kostenlos.
+            Für Steuerkanzleien, Lohnbüros und Unternehmensgruppen.
+            Ein fester Monatspreis, ohne zusätzliche Lizenzgebühr pro Mandant.
           </p>
         </div>
       </section>
@@ -43,22 +44,30 @@ export default function PricingPage() {
               Endpreis. Soweit Umsatzsteuer anfällt, ist sie enthalten.
             </small>
             <p>
-              Für Unternehmen, HR-Abteilungen, Lohnbuchhaltungsteams und
-              Steuerkanzleien.
+              Lohnabrechnungen per E-Mail versenden.
+              Für unbegrenzt viele Mandanten und Unternehmen.
             </p>
             <div className="pricing-trial">
               <strong>2 Monate kostenlos testen</strong>
-              Während der Testphase 0 €. Danach flexibel per Karte oder Rechnung
-              weiter nutzen.
+              Während der Testphase 0 €. Danach 40 € pro Monat.
+              Die Zahlungsart wählen Sie erst zum Ende der Testphase: Karte oder Rechnung.
             </div>
             <Link className="btn btn-primary btn-lg" href="/testzugang">
-              Kostenlos testen
+              2 Monate kostenlos testen
             </Link>
+            <p className="pricing-installation-note">
+              Eine Lizenz kann auf einer Installation gleichzeitig aktiviert sein.
+              <Link href="/agb"> Lizenzbedingungen</Link>
+            </p>
           </div>
 
           <div className="pricing-included">
             <span className="eyebrow">In der Lizenz enthalten</span>
-            <h2>Sie kaufen den vollständigen Arbeitsablauf.</h2>
+            <h2>Eine Lizenz. Alle Mandanten.</h2>
+            <p className="pricing-growth-copy">
+              Ob 10, 50 oder 100 Mandanten: Ihre Kanzlei wächst,
+              der Preis je Lizenz bleibt gleich. Der vollständige Arbeitsablauf ist enthalten.
+            </p>
             <ul>
               {included.map((item) => (
                 <li key={item}>
@@ -68,6 +77,20 @@ export default function PricingPage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      <PricingComparison />
+
+      <section className="pricing-next-step">
+        <div className="container">
+          <div>
+            <h2>Der nächste Mandant? Ist schon mitgedacht.</h2>
+            <p>Testen Sie LohnMail zwei Monate kostenlos mit Ihren eigenen Arbeitsabläufen.</p>
+          </div>
+          <Link href="/testzugang" className="btn btn-primary btn-lg">
+            Jetzt kostenlos testen
+          </Link>
         </div>
       </section>
     </>
