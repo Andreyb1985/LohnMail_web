@@ -971,13 +971,99 @@ button {
 }
 
 .software-frame img {
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
 }
 
-.software-window-crop img {
-  height: 104%;
-  transform: translateY(-4%);
+.software-image-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.software-expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--brand);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.software-dialog {
+  width: calc(100vw - 48px);
+  max-width: 1640px;
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.software-dialog::backdrop {
+  background: #101722b8;
+}
+
+.software-dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+}
+
+.software-dialog-heading h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.software-dialog-heading > div {
+  display: flex;
+  gap: 8px;
+}
+
+.software-dialog-heading button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.software-dialog-heading button[aria-pressed="true"] {
+  color: var(--brand);
+  background: #e7f5ee;
+}
+
+.software-dialog-image {
+  max-height: calc(100dvh - 128px);
+  overflow: auto;
+}
+
+.software-dialog-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.software-dialog-image.is-zoomed img {
+  width: 1600px;
+  max-width: none;
 }
 
 .software-mobile-preview {
@@ -1834,17 +1920,10 @@ button {
     flex: 1;
   }
 
-  .software-frame {
-    aspect-ratio: 1 / 1;
-    border-radius: var(--radius);
-  }
-
   .software-frame.software-mobile-composite-frame {
     aspect-ratio: 4 / 5;
-  }
-
-  .software-frame img {
-    object-position: top left;
+    border-radius: var(--radius);
+    background: #f5f7fa;
   }
 
   .software-mobile-composite-frame .software-desktop-picture {
@@ -1852,20 +1931,16 @@ button {
   }
 
   .software-mobile-preview {
-    display: grid;
+    display: block;
     height: 100%;
     padding: 12px;
-    align-content: start;
-    gap: 10px;
-    background: #f5f7f8;
   }
 
-  .software-mobile-crop {
-    background-repeat: no-repeat;
-    overflow: hidden;
-    border: 1px solid rgba(226, 232, 240, 0.85);
-    border-radius: 7px;
-    background-color: #fff;
+  .software-mobile-inner {
+    display: grid;
+    width: 100%;
+    align-content: start;
+    gap: 10px;
   }
 
   .software-mobile-kpis {
@@ -1874,216 +1949,38 @@ button {
     gap: 8px;
   }
 
-  .dashboard-mobile-title,
-  .dashboard-mobile-preview .software-mobile-crop {
-    background-image: url("/dashboard-current.jpg");
+  .software-mobile-kpis-odd > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .software-mobile-crop {
+    min-width: 0;
     background-repeat: no-repeat;
+    background-color: #f5f7fa;
   }
 
-  .dashboard-mobile-title {
-    aspect-ratio: 800 / 60;
-    background-position: 40.2% 10.5%;
-    background-size: 180% 1500%;
-  }
-
-  .dashboard-mobile-kpis .software-mobile-crop {
-    aspect-ratio: 277 / 122;
-    background-size: 519.9% 737.7%;
-    background-position-y: 20.3%;
-  }
-
-  .dashboard-mobile-kpi-1 {
-    background-position-x: 22.1%;
-  }
-
-  .dashboard-mobile-kpi-2 {
-    background-position-x: 47.3%;
-  }
-
-  .dashboard-mobile-kpi-3 {
-    background-position-x: 72.7%;
-  }
-
-  .dashboard-mobile-kpi-4 {
-    background-position-x: 97.9%;
-  }
-
-  .dashboard-mobile-status {
-    aspect-ratio: 332 / 224;
-    background-position: 56.1% 43.8%;
-    background-size: 433.7% 401.8%;
-  }
-
-  .pruefung-mobile-title,
-  .pruefung-mobile-preview .software-mobile-crop {
-    background-image: url("/pruefung-current.jpg");
-    background-repeat: no-repeat;
-  }
-
-  .pruefung-mobile-title {
-    aspect-ratio: 700 / 60;
-    background-position: 34.7% 10.5%;
-    background-size: 205.7% 1500%;
-  }
-
-  .pruefung-mobile-kpis .software-mobile-crop {
-    aspect-ratio: 276 / 105;
-    background-size: 521.7% 857.1%;
-    background-position-y: 35%;
-  }
-
-  .pruefung-mobile-kpi-1 {
-    background-position-x: 22.1%;
-  }
-
-  .pruefung-mobile-kpi-2 {
-    background-position-x: 47.1%;
-  }
-
-  .pruefung-mobile-kpi-3 {
-    background-position-x: 72.1%;
-  }
-
-  .pruefung-mobile-kpi-4 {
-    background-position-x: 97.1%;
-  }
-
-  .pruefung-mobile-filters {
-    aspect-ratio: 430 / 43;
-    background-position: 25.4% 46.8%;
-    background-size: 334.9% 2093%;
-  }
-
-  .pruefung-mobile-table {
-    aspect-ratio: 529 / 260;
-    background-position: 28.2% 79.1%;
-    background-size: 272.2% 346.2%;
-  }
-
-  .versand-mobile-title,
-  .versand-mobile-preview .software-mobile-crop {
-    background-image: url("/versand-current.png");
-    background-repeat: no-repeat;
-  }
-
-  .versand-mobile-title {
-    aspect-ratio: 1400 / 120;
-    background-position: 39% 11.2%;
-    background-size: 205.7% 1453.3%;
-  }
-
-  .versand-mobile-process {
-    aspect-ratio: 2300 / 205;
-    background-position: 96% 24.6%;
-    background-size: 125.2% 850.7%;
-  }
-
-  .versand-mobile-kpis .software-mobile-crop {
-    aspect-ratio: 445 / 175;
-    background-size: 647.2% 996.6%;
-    background-position-y: 35.6%;
-  }
-
-  .versand-mobile-kpi-1 { background-position-x: 20%; }
-  .versand-mobile-kpi-2 { background-position-x: 42.8%; }
-  .versand-mobile-kpi-3 { background-position-x: 65.7%; }
-  .versand-mobile-kpi-4 { background-position-x: 88.5%; }
-
-  .versand-mobile-table {
-    aspect-ratio: 2100 / 620;
-    background-position: 91% 70%;
-    background-size: 137.1% 281.3%;
-  }
-
-  .unternehmen-mobile-title,
-  .unternehmen-mobile-preview .software-mobile-crop {
-    background-image: url("/unternehmen-current.png");
-    background-repeat: no-repeat;
-  }
-
-  .unternehmen-mobile-title {
-    aspect-ratio: 1400 / 120;
-    background-position: 39% 11.2%;
-    background-size: 205.7% 1453.3%;
-  }
-
-  .unternehmen-mobile-kpis .software-mobile-crop {
-    aspect-ratio: 720 / 220;
-    background-size: 400% 792.7%;
-    background-position-y: 24.1%;
-  }
-
-  .unternehmen-mobile-kpi-1 { background-position-x: 22.2%; }
-  .unternehmen-mobile-kpi-2 { background-position-x: 56.2%; }
-  .unternehmen-mobile-kpi-3 { background-position-x: 90.2%; }
-  .unternehmen-mobile-kpi-4 {
-    background-position: 25.8% 48.3%;
-  }
-
-  .unternehmen-mobile-config {
-    aspect-ratio: 1320 / 580;
-    background-position: 91.5% 52%;
-    background-size: 218.2% 300.7%;
-  }
-
-  .berichte-mobile-title,
-  .berichte-mobile-preview .software-mobile-crop {
-    background-image: url("/berichte-current.jpg");
-    background-repeat: no-repeat;
-  }
-
-  .berichte-mobile-title {
-    aspect-ratio: 700 / 60;
-    background-position: 34.7% 10.5%;
-    background-size: 205.7% 1500%;
-  }
-
-  .berichte-mobile-kpis .software-mobile-crop {
-    aspect-ratio: 217 / 111;
-    background-size: 663.6% 810.8%;
-    background-position-y: 19.9%;
-  }
-
-  .berichte-mobile-kpi-1 {
-    background-position-x: 21%;
-  }
-
-  .berichte-mobile-kpi-2 {
-    background-position-x: 40.1%;
-  }
-
-  .berichte-mobile-kpi-4 {
-    background-position-x: 78.2%;
-  }
-
-  .berichte-mobile-kpi-5 {
-    background-position-x: 97.1%;
-  }
-
-  .berichte-mobile-files {
+  .software-mobile-detail {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .software-image-meta {
+    font-size: 11px;
     gap: 8px;
   }
 
-  .berichte-mobile-files .software-mobile-crop {
-    aspect-ratio: 364 / 61;
-    background-size: 395.6% 1475.4%;
-    background-position-y: 47.3%;
+  .software-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 24px);
   }
 
-  .berichte-mobile-file-1 {
-    background-position-x: 25.6%;
+  .software-dialog-heading {
+    padding: 10px 12px;
   }
 
-  .berichte-mobile-file-2 {
-    background-position-x: 60.3%;
-  }
-
-  .berichte-mobile-chart {
-    aspect-ratio: 783 / 295;
-    background-position: 39.1% 81%;
-    background-size: 183.9% 305.1%;
+  .software-dialog-heading h2 {
+    font-size: 16px;
   }
 
   .software-caption {
@@ -2104,6 +2001,13 @@ button {
   }
 
   .final-cta { padding: 56px 24px; }
+}
+
+@media (max-width: 540px) {
+  .software-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 420px) {
