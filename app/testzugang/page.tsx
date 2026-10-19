@@ -4,7 +4,7 @@ import { CheckCircle, Mail } from "@/components/icons";
 const trialPoints = [
   "Voller Funktionsumfang",
   "Zahlungsart erst zum Testende wählen",
-  "Für Windows und macOS",
+  "Download aktuell für Windows",
   "Danach Karte oder Rechnung",
 ];
 
@@ -18,8 +18,9 @@ export default function TrialPage() {
           </span>
           <h1>LohnMail zwei Monate kostenlos testen.</h1>
           <p>
-            Füllen Sie das Formular aus. Anschließend können Sie Ihre Version für
-            Windows oder macOS auswählen.
+            Füllen Sie das Formular aus. Anschließend können Sie die Windows-Version
+            im Microsoft Store herunterladen. Der macOS-Download ist vorübergehend
+            nicht verfügbar.
           </p>
 
           <div className="trial-points">

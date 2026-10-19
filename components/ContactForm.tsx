@@ -79,26 +79,21 @@ export default function ContactForm() {
               Im Microsoft Store öffnen
             </span>
           </a>
-          <a
-            className="download-placeholder download-link"
-            href="/downloads/LohnMail-macOS.dmg"
-            download
-          >
+          <div className="download-placeholder" aria-disabled="true">
             <span className="platform-icon platform-text">MAC</span>
             <span>
               <strong>Für macOS</strong>
               <small>Apple Silicon · DMG</small>
             </span>
             <span className="download-status">
-              <Download size={14} />
-              DMG herunterladen
+              Vorübergehend nicht verfügbar
             </span>
-          </a>
+          </div>
         </div>
 
         <p className="download-note">
           Die Windows-Version ist im Microsoft Store verfügbar. Die macOS-Version
-          kann direkt als DMG für Apple Silicon heruntergeladen werden.
+          steht vorübergehend nicht zum Download bereit.
         </p>
       </div>
     );
