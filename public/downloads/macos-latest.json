@@ -1,0 +1,14 @@
+{
+  "platform": "macos",
+  "channel": "website",
+  "architecture": "arm64",
+  "version": "2.2.0",
+  "build": "2026102203",
+  "minimum_macos": "13.0",
+  "download_url": "https://www.lohn-mail.de/downloads/LohnMail-macOS.dmg",
+  "release_notes": [
+    "Verbesserte Personalnummernerkennung im PDF-Inhalt, einschließlich Angaben wie *Pers.-Nr. 03028*.",
+    "Einheitliche Erkennung für PDF-Ordner und Gesamt-PDF; mehrdeutige Nummern werden weiterhin abgewiesen.",
+    "Bereits vorbereitete Vorgänge mit PDF-Inhaltserkennung müssen erneut geprüft werden."
+  ]
+}

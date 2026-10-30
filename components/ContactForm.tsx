@@ -75,21 +75,22 @@ export default function ContactForm() {
               Im Microsoft Store öffnen
             </span>
           </SoftwareDownloadLink>
-          <SoftwareDownloadLink platform="macos" disabled>
+          <SoftwareDownloadLink platform="macos">
             <span className="platform-icon platform-text">MAC</span>
             <span>
               <strong>Für macOS</strong>
               <small>Apple Silicon · DMG</small>
             </span>
             <span className="download-status">
-              Vorübergehend nicht verfügbar
+              <Download size={14} />
+              DMG herunterladen
             </span>
           </SoftwareDownloadLink>
         </div>
 
         <p className="download-note">
           Die Windows-Version ist im Microsoft Store verfügbar. Die macOS-Version
-          steht vorübergehend nicht zum Download bereit.
+          kann direkt als DMG für Apple Silicon heruntergeladen werden.
         </p>
       </div>
     );
