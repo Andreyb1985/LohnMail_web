@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CheckCircle, Download, Monitor } from "./icons";
 import RecaptchaNotice from "./RecaptchaNotice";
+import SoftwareDownloadLink from "./SoftwareDownloadLink";
 import { getRecaptchaToken } from "@/lib/recaptcha-client";
 
 export default function ContactForm() {
@@ -63,12 +64,7 @@ export default function ContactForm() {
         </div>
 
         <div className="download-options" aria-label="Verfügbare LohnMail-Versionen">
-          <a
-            className="download-placeholder download-link"
-            href="https://apps.microsoft.com/detail/9PK5RR3LQ9N9"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <SoftwareDownloadLink platform="windows">
             <span className="platform-icon"><Monitor size={24} /></span>
             <span>
               <strong>Für Windows</strong>
@@ -78,8 +74,8 @@ export default function ContactForm() {
               <Download size={14} />
               Im Microsoft Store öffnen
             </span>
-          </a>
-          <div className="download-placeholder" aria-disabled="true">
+          </SoftwareDownloadLink>
+          <SoftwareDownloadLink platform="macos" disabled>
             <span className="platform-icon platform-text">MAC</span>
             <span>
               <strong>Für macOS</strong>
@@ -88,7 +84,7 @@ export default function ContactForm() {
             <span className="download-status">
               Vorübergehend nicht verfügbar
             </span>
-          </div>
+          </SoftwareDownloadLink>
         </div>
 
         <p className="download-note">

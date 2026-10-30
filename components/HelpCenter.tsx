@@ -59,7 +59,7 @@ function DemoFiles() {
           <h3>So verwenden Sie die Dateien</h3>
           <ol className="help-instructions">
             <li>Laden Sie beide Dateien herunter und legen Sie einen separaten Demo-Mandanten an.</li>
-            <li>Ordnen Sie ihm Mitarbeiter-Demo.xlsx zu. Die Spalten heißen PersNr, Email, Name und Vorname.</li>
+            <li>Ordnen Sie ihm Mitarbeiter-Demo.xlsx zu. Die Spalten heißen PersNr, Email, Name, Vorname und Geburtsdatum. Die Geburtsdaten sind fiktive Beispieldaten im Format TT.MM.JJJJ.</li>
             <li>Wählen Sie in Verarbeitung den Modus Gesamt-PDF und die Datei Lohnabrechnung-Demo.pdf.</li>
             <li>Stellen Sie den Zeitraum passend zur Beispielabrechnung ein. Starten Sie die Verarbeitung und prüfen Sie die Zuordnungen.</li>
           </ol>
@@ -68,7 +68,7 @@ function DemoFiles() {
         <div className="tutorial-downloads">
           <a href="/tutorial/demo/Mitarbeiter-Demo.xlsx" download>
             <span className="tutorial-file-icon"><Table size={22} /></span>
-            <span><strong>Mitarbeiter-Demo.xlsx</strong><small>Excel-Mitarbeiterliste · 8 KB</small></span>
+            <span><strong>Mitarbeiter-Demo.xlsx</strong><small>Excel-Mitarbeiterliste mit Geburtsdatum</small></span>
             <Download size={18} />
           </a>
           <a href="/tutorial/demo/Lohnabrechnung-Demo.pdf" download>
