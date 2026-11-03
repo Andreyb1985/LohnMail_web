@@ -141,6 +141,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             <span>Aus der Praxis der Lohnbuchhaltung entwickelt.</span>
           </div>
           <div className="shell-footer-links">
+            <Link href="/hilfe-tutorials">Hilfe &amp; Tutorials</Link>
             <a href="mailto:support@lohn-mail.de">Kontakt</a>
             <Link href="/impressum">Impressum</Link>
             <Link href="/datenschutz">Datenschutz</Link>
